@@ -41,44 +41,48 @@ class _HomeState extends State<Home> {
         ),
       ),
       webDesktopTablet: Scaffold(
-          body: Row(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Theme.of(context).colorScheme.primary,
-              Theme.of(context).colorScheme.secondaryContainer,
-            ])),
-            child: NavigationRail(
-              backgroundColor: Colors.transparent,
-              labelType: NavigationRailLabelType.all,
-              leading: Padding(
-                padding: const EdgeInsets.only(bottom: 24.0),
-                child: Image.asset(
-                  'assets/images/crown.png',
-                  width: 48.0,
-                  fit: BoxFit.cover,
+        body: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Theme.of(context).colorScheme.primary,
+                    Theme.of(context).colorScheme.secondaryContainer,
+                  ],
                 ),
               ),
-              destinations: const [
-                NavigationRailDestination(
-                    icon: Icon(Icons.reviews), label: Text('Reviews')),
-                NavigationRailDestination(
-                    icon: Icon(Icons.photo_library), label: Text('Photos')),
-                NavigationRailDestination(
-                    icon: Icon(Icons.location_pin), label: Text('Locations')),
-              ],
-              selectedIndex: _currentPageIndex,
-              onDestinationSelected: (int index) {
-                setState(() {
-                  _currentPageIndex = index;
-                });
-              },
+              child: NavigationRail(
+                backgroundColor: Colors.transparent,
+                labelType: NavigationRailLabelType.all,
+                leading: Padding(
+                  padding: const EdgeInsets.only(bottom: 24.0),
+                  child: Image.asset(
+                    'assets/images/crown.png',
+                    width: 48.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                destinations: const [
+                  NavigationRailDestination(
+                      icon: Icon(Icons.reviews), label: Text('Reviews')),
+                  NavigationRailDestination(
+                      icon: Icon(Icons.photo_library), label: Text('Photos')),
+                  NavigationRailDestination(
+                      icon: Icon(Icons.location_pin), label: Text('Locations')),
+                ],
+                selectedIndex: _currentPageIndex,
+                onDestinationSelected: (int index) {
+                  setState(() {
+                    _currentPageIndex = index;
+                  });
+                },
+              ),
             ),
-          ),
-          Expanded(child: _bodySelectedPage[_currentPageIndex]),
-        ],
-      )),
+            Expanded(child: _bodySelectedPage[_currentPageIndex]),
+          ],
+        ),
+      ),
     );
   }
 }
